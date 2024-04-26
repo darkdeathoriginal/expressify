@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+import AbhayaText from "./AbhayaText";
 
 const options = [
     {
@@ -26,9 +27,9 @@ export default function Home() {
       <View style={styles.circle2}></View>
       <View style={styles.welcomeContainer}>
         <View style={styles.titleContainer}>
-          <Text style={styles.heading}>Expressify</Text>
-            <Text style={{width: 300,color:"white"
-            }}>Concentrate on the abilities your disability doesn't hinder and don't dwell on the things it interferes with</Text>
+          <AbhayaText style={styles.heading}>Expressify</AbhayaText>
+            <AbhayaText style={{width: 300,color:"white"
+            }}>Concentrate on the abilities your disability doesn't hinder and don't dwell on the things it interferes with</AbhayaText>
         </View>
           <View style={styles.group}>
             {options.map((option) => (
@@ -37,7 +38,7 @@ export default function Home() {
                 <Link href={option.path}>
                 <View style={styles.optionTitleContainer}>
                   <View style={styles.rectangle}>
-                    <Text style={styles.text}>{option.title}</Text>
+                    <AbhayaText style={styles.text}>{option.title}</AbhayaText>
                   </View>
                 </View>
                 </Link>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
-    paddingVertical: 0,
+    paddingVertical: 5,
   },
   optionsContainer: {
     display: "flex",
@@ -116,19 +117,16 @@ const styles = StyleSheet.create({
     marginTop:-250
   },
   heading:{
-    fontSize: 40,
-    fontWeight: "700",
+    fontSize: 50,
     color: "white",
   },
   heading2:{
     fontSize: 30,
-    fontFamily: "Planquin-Black",
     color: "#000",
   },
   text: {
     fontSize: 30,
     color: "#000",
-    fontFamily: "Planquin-Black",
   },
   welcomeContainer:{
     marginTop: 20,
