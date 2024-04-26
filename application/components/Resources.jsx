@@ -1,7 +1,7 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AbhayaText from "./AbhayaText";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 export default function Resources() {
   return (
@@ -12,6 +12,20 @@ export default function Resources() {
       end={{ x: 0.5, y: 1 }}
       locations={[0, 1]}
     >
+      <View style={styles.nav}>
+        <TouchableOpacity
+          onPress={() => {
+            router.back();
+          }}
+        >
+          <Image
+            source={require("../assets/icons/connectleft.png")}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+        <View></View>
+      </View>
       <View style={styles.headerContainer}>
         <Image
           source={require("../assets/icons/expressify.png")}
@@ -92,5 +106,19 @@ const styles = StyleSheet.create({
     width: 400,
     opacity: 0.5,
     bottom: 0,
+  },
+  nav: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    alignSelf: "stretch",
+    marginTop: 0,
+    paddingHorizontal: 10,
+  },
+  icon: {
+    height: 30,
+    width: 30,
+    zIndex: 10,
   },
 });
