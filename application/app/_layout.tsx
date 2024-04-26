@@ -107,6 +107,7 @@ function RootLayoutNav() {
         />
         <Stack.Screen name="communify/index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/index" options={{ headerShown: false }} />
+        <Stack.Screen name="resources/connect/index" options={{ headerShown: false }} />
       </Stack>
       
     </ThemeProvider>
