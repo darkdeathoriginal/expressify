@@ -67,19 +67,6 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen
-          name="communify/index"
-          options={{
-            headerShown: true,
-            headerTitle: "Expressify",
-            headerStyle: {
-              backgroundColor: "white",
-            },
-            headerTitleStyle: {
-              color: "black",
-            },
-          }}
-        />
-        <Stack.Screen
           name="signin/index"
           options={{
             headerShown: false,
@@ -118,6 +105,8 @@ function RootLayoutNav() {
             },
           }}
         />
+        <Stack.Screen name="communify/index" options={{ headerShown: false }} />
+        <Stack.Screen name="resources/index" options={{ headerShown: false }} />
       </Stack>
       
     </ThemeProvider>

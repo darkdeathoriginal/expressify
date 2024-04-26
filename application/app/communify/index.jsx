@@ -1,12 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
-import GradientBackground from "../../components/GradientBackground";
-import Expressify from "../../components/Expressify";
+import Communify from "../../components/Communify";
 
 export default function Index() {
   return (
-    <GradientBackground styles={styles.container}>
-      <Expressify />
-    </GradientBackground>
+      <Communify />
   );
 }
 
