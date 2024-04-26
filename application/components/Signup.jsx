@@ -91,7 +91,7 @@ export default function Signup() {
         </View>
         <View style={styles.signupContainer}>
           <AbhayaText>Have an account?</AbhayaText>
-          <Link href="/signup">
+          <Link href="/signin">
             <AbhayaText>Sign in</AbhayaText>
           </Link>
         </View>
