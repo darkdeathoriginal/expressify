@@ -4,7 +4,7 @@ import AbhayaText from "./AbhayaText";
 
 const options = [
     {
-      title: "Expressify",
+      title: "Communify",
       imagePath: require("../assets/icons/expressify.png"),
       path:"/expressify"
     },

@@ -67,7 +67,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen
-          name="expressify/index"
+          name="communify/index"
           options={{
             headerShown: true,
             headerTitle: "Expressify",
