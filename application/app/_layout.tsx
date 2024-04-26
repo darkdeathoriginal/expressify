@@ -7,7 +7,6 @@ import {
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import AppLoading from 'expo-app-loading';
 
 import { useColorScheme } from "@/components/useColorScheme";
 import {
@@ -36,6 +35,11 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
+    AbhayaLibre_400Regular,
+    AbhayaLibre_500Medium,
+    AbhayaLibre_600SemiBold,
+    AbhayaLibre_700Bold,
+    AbhayaLibre_800ExtraBold
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -58,16 +62,6 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-  let [fontsLoaded] = useFonts({
-    AbhayaLibre_400Regular,
-    AbhayaLibre_500Medium,
-    AbhayaLibre_600SemiBold,
-    AbhayaLibre_700Bold,
-    AbhayaLibre_800ExtraBold,
-  });
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  } 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>

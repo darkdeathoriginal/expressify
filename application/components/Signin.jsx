@@ -3,12 +3,12 @@ import {
   Image,
   SafeAreaView,
   StyleSheet,
-  Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { ExternalLink } from "./ExternalLink";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import AbhayaText from "./AbhayaText";
 
 export default function Signin() {
@@ -18,15 +18,22 @@ export default function Signin() {
     <View style={styles.container}>
       <View style={styles.circle}></View>
       <View style={styles.circle2}></View>
+      <View style={styles.circle3}></View>
       <View style={styles.aboveCircles}>
         <View style={styles.nav}>
-          <Image
-            source={require("../assets/icons/left-arrow.png")}
-            style={{ height: 20 }}
-            resizeMode="contain"
-          />
+          <TouchableOpacity
+            onPress={() => {
+              router.push("/");
+            }}
+          >
+            <Image
+              source={require("../assets/icons/left-arrow.png")}
+              style={{ height: 20 }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
           <View style={styles.navSide}>
-            <Text style={styles.navText}>Expressify</Text>
+            <AbhayaText style={styles.navText}>Expressify</AbhayaText>
             <Image
               source={require("../assets/icons/message.png")}
               style={{ height: 20, marginTop: 4 }}
@@ -35,8 +42,12 @@ export default function Signin() {
           </View>
         </View>
         <View style={styles.welcomeContainer}>
-          <AbhayaText style={styles.welcomeTitle} type={"400Regular"}>Hi! Welcome</AbhayaText>
-          <Text style={styles.welcomeDesc}>Please enter your details </Text>
+          <AbhayaText style={styles.welcomeTitle} type={"800ExtraBold"}>
+            Hi! Welcome
+          </AbhayaText>
+          <AbhayaText style={styles.welcomeDesc}>
+            Please enter your details{" "}
+          </AbhayaText>
         </View>
         <SafeAreaView>
           <View style={styles.inputContainer}>
@@ -53,7 +64,7 @@ export default function Signin() {
               placeholder="Password"
             />
             <Link href="/forgot-password">
-              <Text>Forgot password</Text>
+              <AbhayaText>Forgot password</AbhayaText>
             </Link>
           </View>
         </SafeAreaView>
@@ -64,19 +75,21 @@ export default function Signin() {
           }}
         >
           <View style={styles.signinSection}>
-            <Text style={styles.signinText}>Sign in</Text>
-            <Image
-              source={require("../assets/icons/signin-button.png")}
-              style={{ height: 60,marginRight:-40 }}
-              resizeMode="contain"
-            />
+            <AbhayaText style={styles.signinText}>Sign in</AbhayaText>
+            <TouchableOpacity>
+              <Image
+                source={require("../assets/icons/signin-button.png")}
+                style={{ height: 60, marginRight: -40 }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.signupContainer}>
-            <Text>Don't have an account?</Text>
-            <Link href="/signup">
-              <Text>Sign up</Text>
-            </Link>
+          <AbhayaText>Don't have an account?</AbhayaText>
+          <Link href="/signup">
+            <AbhayaText>Sign up</AbhayaText>
+          </Link>
         </View>
       </View>
     </View>
@@ -113,6 +126,16 @@ const styles = StyleSheet.create({
     left: -200,
     zIndex: 3,
   },
+  circle3: {
+    width: 300,
+    height: 300,
+    borderRadius: 1000,
+    backgroundColor: "#B0CBFF",
+    position: "absolute",
+    top: -29,
+    left: 300,
+    zIndex: 1,
+  },
   nav: {
     display: "flex",
     flexDirection: "row",
@@ -123,7 +146,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   navText: {
-    fontFamily: "",
     color: "#fff",
     fontSize: 29,
   },
@@ -137,7 +159,6 @@ const styles = StyleSheet.create({
   },
   welcomeTitle: {
     fontSize: 40,
-    fontWeight: "700",
     color: "#fff",
     marginTop: 10,
   },
