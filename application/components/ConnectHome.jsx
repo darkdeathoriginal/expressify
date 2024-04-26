@@ -2,11 +2,9 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AbhayaText from "./AbhayaText";
 import { router } from "expo-router";
 
-export default function Connect() {
+export default function ConnectHome() {
   return (
     <View style={styles.container}>
-      <View style={[styles.circle, { top: -132, right: -132 }]}></View>
-      <View style={[styles.circle, { top: "45%", left: -132 }]}></View>
       <View style={styles.nav}>
         <TouchableOpacity
           onPress={() => {
@@ -22,23 +20,17 @@ export default function Connect() {
         <View></View>
       </View>
       <View>
-        <Image
-          source={require("../assets/connectImage.png")}
-          style={styles.image}
-          resizeMode="contain"
-        />
       </View>
       <View style={styles.model}>
-        <AbhayaText style={styles.modelText}>
-          Chatting App That{"\n"} Connects People
-        </AbhayaText>
-        <TouchableOpacity onPress={()=>{
-            router.push("/resources/connect/home")
-        }}>
-          <View style={styles.modelButton}>
-            <AbhayaText style={styles.modelButtonText}>Get Started</AbhayaText>
+        <View>
+
+        </View>
+          <View style={styles.navBar}>
+            <View style={styles.messageCard}>
+                <View></View>
+                <View></View>
+            </View>
           </View>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -63,9 +55,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   model: {
-    height: 304,
+    height: "70%",
     alignSelf: "stretch",
-    backgroundColor: "white",
+    backgroundColor: "#F8FBFB",
     zIndex: 1,
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
@@ -113,5 +105,28 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     zIndex: 10,
+    margin: 10,
+  },
+  navBar: {
+    height: "12%",
+    alignSelf: "stretch",
+    backgroundColor: "grey",
+    zIndex: 1,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  messageCard: {
+    backgroundColor: "grey",
+    zIndex: 1,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });

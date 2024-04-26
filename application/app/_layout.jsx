@@ -64,18 +64,23 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-  const [user, setUser] = useState(false);
-  useEffect(() => {
-    onAuthStateChanged(FIREBASE_AUTH, (auth) => {
-      setUser(auth);
-      console.log(auth);
-    });
-  }, []);
-  if (!user) {
-    return (
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack initialRouteName="signin/index">
-          <Stack.Screen name="signin/index" options={{ headerShown: false }} />
+
+  return (
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="communify/index" options={{ headerShown: false }} />
+        <Stack.Screen name="resources/index" options={{ headerShown: false }} />
+        <Stack.Screen name="form/index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="resources/connect/index"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="resources/connect/home"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="signin/index" options={{ headerShown: false }} />
           <Stack.Screen
             name="signup/index"
             options={{
@@ -102,24 +107,6 @@ function RootLayoutNav() {
               },
             }}
           />
-        </Stack>
-      </ThemeProvider>
-    );
-  }
-  return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="communify/index" options={{ headerShown: false }} />
-        <Stack.Screen name="resources/index" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="resources/connect/index"
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="resources/connect/home"
-          options={{ headerShown: false }}
-        />
       </Stack>
     </ThemeProvider>
   );

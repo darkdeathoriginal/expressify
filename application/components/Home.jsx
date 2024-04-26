@@ -1,24 +1,25 @@
-import { Link } from "expo-router";
-import { Image, StyleSheet, View } from "react-native";
+import { Link, router } from "expo-router";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import AbhayaText from "./AbhayaText";
+import { FIREBASE_AUTH } from "../firebaseconfig";
 
 const options = [
-    {
-      title: "Communify",
-      imagePath: require("../assets/icons/expressify.png"),
-      path:"/expressify"
-    },
-    {
-      title: "Signify",
-      imagePath: require("../assets/icons/signify.png"),
-      path:"/signin"
-    },
-    {
-      title: "Resources",
-      imagePath: require("../assets/icons/resources.png"),
-      path:"/resources"
-    },
-  ];
+  {
+    title: "Communify",
+    imagePath: require("../assets/icons/expressify.png"),
+    path: "/communify",
+  },
+  {
+    title: "Signify",
+    imagePath: require("../assets/icons/signify.png"),
+    path: "/signin",
+  },
+  {
+    title: "Resources",
+    imagePath: require("../assets/icons/resources.png"),
+    path: "/resources",
+  },
+];
 
 export default function Home() {
   return (
@@ -28,24 +29,38 @@ export default function Home() {
       <View style={styles.welcomeContainer}>
         <View style={styles.titleContainer}>
           <AbhayaText style={styles.heading}>Expressify</AbhayaText>
-            <AbhayaText style={{width: 300,color:"white"
-            }}>Concentrate on the abilities your disability doesn't hinder and don't dwell on the things it interferes with</AbhayaText>
+          <AbhayaText style={{ width: 300, color: "white" }}>
+            Concentrate on the abilities your disability doesn't hinder and
+            don't dwell on the things it interferes with
+          </AbhayaText>
         </View>
-          <View style={styles.group}>
-            {options.map((option) => (
-              <View style={styles.optionsContainer} key={option.title}>
-                <Image source={option.imagePath} style={styles.image} />
-                <Link href={option.path}>
+        <View style={styles.group}>
+          {options.map((option) => (
+            <View style={styles.optionsContainer} key={option.title}>
+              <Image source={option.imagePath} style={styles.image} />
+              <Link href={option.path}>
                 <View style={styles.optionTitleContainer}>
                   <View style={styles.rectangle}>
                     <AbhayaText style={styles.text}>{option.title}</AbhayaText>
                   </View>
                 </View>
-                </Link>
+              </Link>
+            </View>
+          ))}
+          <TouchableOpacity onPress={()=>{
+            FIREBASE_AUTH.signOut()
+            router.push('/signin')
+          }}>
+            <View style={styles.optionTitleContainer}>
+              <View style={[styles.rectangle, { backgroundColor: "red" }]}>
+                <AbhayaText style={{ ...styles.text, color: "white" }}>
+                  Logout
+                </AbhayaText>
               </View>
-            ))}
-          </View>
+            </View>
+          </TouchableOpacity>
         </View>
+      </View>
     </View>
   );
 }
@@ -82,8 +97,8 @@ const styles = StyleSheet.create({
   image: {
     height: 70,
     width: 70,
-    borderRadius: 50, 
-    overflow: "hidden", 
+    borderRadius: 50,
+    overflow: "hidden",
     zIndex: 10,
   },
   rectangle: {
@@ -114,13 +129,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     gap: 10,
-    marginTop:-250
+    marginTop: -250,
   },
-  heading:{
+  heading: {
     fontSize: 50,
     color: "white",
   },
-  heading2:{
+  heading2: {
     fontSize: 30,
     color: "#000",
   },
@@ -128,16 +143,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#000",
   },
-  welcomeContainer:{
+  welcomeContainer: {
     marginTop: 20,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
     alignContent: "center",
     height: "100%",
-    zIndex:100,
+    zIndex: 100,
   },
-  titleContainer:{
+  titleContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -145,6 +160,6 @@ const styles = StyleSheet.create({
     gap: 10,
     width: "100%",
     overflow: "hidden",
-    marginTop:-100
-  }
+    marginTop: -100,
+  },
 });

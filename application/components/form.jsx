@@ -108,6 +108,7 @@ export default function Form() {
                     AsyncStorage.setItem("speech", option);
                     setSelectedSpeech(option);
                   }}
+                  key={option}
                 >
                   <View style={styles.speechContainer}>
                     <View
