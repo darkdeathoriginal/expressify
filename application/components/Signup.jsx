@@ -10,11 +10,34 @@ import {
 import { ExternalLink } from "./ExternalLink";
 import { Link, router } from "expo-router";
 import AbhayaText from "./AbhayaText";
+import { FIREBASE_AUTH } from "../firebaseconfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+
+  const auth = FIREBASE_AUTH;
+  const signUp = () => {
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        setLoading(false);
+        alert("Signup in successful");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        alert("Signup in failed" + error.message);
+      });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.circle}></View>
@@ -64,12 +87,28 @@ export default function Signup() {
               style={styles.input}
               placeholder="Your Email"
             />
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              style={styles.input}
-              placeholder="Password"
-            />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginLeft: -25,
+              }}
+            >
+              <TextInput
+                value={password}
+                onChangeText={setPassword}
+                style={styles.input}
+                placeholder="Password"
+                secureTextEntry={!showPassword}
+              />
+              <MaterialCommunityIcons
+                name={showPassword ? "eye-off" : "eye"}
+                size={24}
+                color="#aaa"
+                style={{ marginLeft: -50 }}
+                onPress={() => setShowPassword(!showPassword)}
+              />
+            </View>
           </View>
         </SafeAreaView>
         {/* <ExternalLink href="https:google.com">test</ExternalLink> */}
@@ -80,7 +119,7 @@ export default function Signup() {
         >
           <View style={styles.signinSection}>
             <AbhayaText style={styles.signinText}>Sign Up</AbhayaText>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={signUp}>
               <Image
                 source={require("../assets/icons/signin-button.png")}
                 style={{ height: 60, marginRight: -40 }}

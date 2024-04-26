@@ -7,13 +7,37 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { ExternalLink } from "./ExternalLink";
 import { Link, router } from "expo-router";
 import AbhayaText from "./AbhayaText";
+import { FIREBASE_AUTH } from "../firebaseconfig";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loadng, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const auth = FIREBASE_AUTH;
+
+  const signIn = () => {
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        setLoading(false);
+        alert("Sign in successful");
+        router.push("/form");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        alert("Sign in failed" + error.message);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.circle}></View>
@@ -21,17 +45,7 @@ export default function Signin() {
       <View style={styles.circle3}></View>
       <View style={styles.aboveCircles}>
         <View style={styles.nav}>
-          <TouchableOpacity
-            onPress={() => {
-              router.push("/");
-            }}
-          >
-            <Image
-              source={require("../assets/icons/left-arrow.png")}
-              style={{ height: 20 }}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
+          <TouchableOpacity></TouchableOpacity>
           <View style={styles.navSide}>
             <AbhayaText style={styles.navText}>Expressify</AbhayaText>
             <Image
@@ -57,12 +71,28 @@ export default function Signin() {
               style={styles.input}
               placeholder="Your Email"
             />
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              style={styles.input}
-              placeholder="Password"
-            />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginLeft: -25,
+              }}
+            >
+              <TextInput
+                value={password}
+                onChangeText={setPassword}
+                style={styles.input}
+                placeholder="Password"
+                secureTextEntry={!showPassword}
+              />
+              <MaterialCommunityIcons
+                name={showPassword ? "eye-off" : "eye"}
+                size={24}
+                color="#aaa"
+                style={{ marginLeft: -50 }}
+                onPress={() => setShowPassword(!showPassword)}
+              />
+            </View>
             <Link href="/forgot-password">
               <AbhayaText>Forgot password</AbhayaText>
             </Link>
@@ -76,7 +106,7 @@ export default function Signin() {
         >
           <View style={styles.signinSection}>
             <AbhayaText style={styles.signinText}>Sign in</AbhayaText>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={signIn}>
               <Image
                 source={require("../assets/icons/signin-button.png")}
                 style={{ height: 60, marginRight: -40 }}
