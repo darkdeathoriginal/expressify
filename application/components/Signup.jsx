@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     height: "100%",
     width: "100%",
-    fontFamily: "Planquin-Black",
     backgroundColor: "#D7E5FF",
   },
   circle: {
