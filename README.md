@@ -9,5 +9,5 @@ Imagine a world where people with speech disorders can **express themselves free
 
 ## What is this project about?
 
-Our projects aims to create an application that is tailored for individuals having speech disorders, providing personalized therapy and communication assistance to enhace their ability to express themselves 
+Our projects aims to create an application that is tailored for individuals having speech disorders, providing personalized therapy and communication assistance to enhace their ability to express themselves and engage with others effectively. Also we plan to foster a community around this application to meet the evolving needs of our users. Furthermore we plan to incorporate feedback from the them and to inform the development of new features and functionality, that will make a positive impact and empower individuals with speech disorders to express themselves and engage with the world around them.
 
