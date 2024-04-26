@@ -105,6 +105,19 @@ function RootLayoutNav() {
             },
           }}
         />
+        <Stack.Screen
+          name="forgot-password/index"
+          options={{
+            headerShown: false,
+            headerTitle: "Signin",
+            headerStyle: {
+              backgroundColor: "white",
+            },
+            headerTitleStyle: {
+              color: "black",
+            },
+          }}
+        />
       </Stack>
       
     </ThemeProvider>
