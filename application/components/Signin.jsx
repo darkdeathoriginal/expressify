@@ -1,6 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import { ExternalLink } from "./ExternalLink";
+import { Link } from "expo-router";
+import AbhayaText from "./AbhayaText";
 
 export default function Signin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
       <View style={styles.circle}></View>
@@ -13,19 +26,58 @@ export default function Signin() {
             resizeMode="contain"
           />
           <View style={styles.navSide}>
-          <Text style={styles.navText}>Expressify</Text>
-          <Image
-            source={require("../assets/icons/message.png")}
-            style={{ height: 20,marginTop:4 }}
-            resizeMode="contain"
-          />
+            <Text style={styles.navText}>Expressify</Text>
+            <Image
+              source={require("../assets/icons/message.png")}
+              style={{ height: 20, marginTop: 4 }}
+              resizeMode="contain"
+            />
           </View>
         </View>
         <View style={styles.welcomeContainer}>
-          <Text style={styles.welcomeTitle}>Hi! Welcome</Text>
+          <AbhayaText style={styles.welcomeTitle} type={"400Regular"}>Hi! Welcome</AbhayaText>
           <Text style={styles.welcomeDesc}>Please enter your details </Text>
         </View>
-        <View></View>
+        <SafeAreaView>
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={email}
+              onChangeText={setEmail}
+              style={styles.input}
+              placeholder="Your Email"
+            />
+            <TextInput
+              value={password}
+              onChangeText={setPassword}
+              style={styles.input}
+              placeholder="Password"
+            />
+            <Link href="/forgot-password">
+              <Text>Forgot password</Text>
+            </Link>
+          </View>
+        </SafeAreaView>
+        {/* <ExternalLink href="https:google.com">test</ExternalLink> */}
+        <View
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.signinSection}>
+            <Text style={styles.signinText}>Sign in</Text>
+            <Image
+              source={require("../assets/icons/signin-button.png")}
+              style={{ height: 60,marginRight:-40 }}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+        <View style={styles.signupContainer}>
+            <Text>Don't have an account?</Text>
+            <Link href="/signup">
+              <Text>Sign up</Text>
+            </Link>
+        </View>
       </View>
     </View>
   );
@@ -75,31 +127,65 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 29,
   },
-  navSide:{
+  navSide: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    margin:0,
+    margin: 0,
     gap: -20,
   },
   welcomeTitle: {
     fontSize: 40,
     fontWeight: "700",
     color: "#fff",
-    marginTop:10
+    marginTop: 10,
   },
   welcomeDesc: {
     fontSize: 20,
     color: "#fff",
   },
-  aboveCircles:{
-    zIndex:100
+  aboveCircles: {
+    zIndex: 100,
   },
-  welcomeContainer:{
+  welcomeContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
+  inputContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 200,
+  },
+  input: {
+    height: 40,
+    width: 300,
+    margin: 12,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+  },
+  signinSection: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "between",
+    alignItems: "center",
+    gap: 130,
+    margin: 0,
+    marginTop: 20,
+  },
+  signinText: {
+    fontSize: 30,
+  },
+  signupContainer: {
+    display: "flex",
+    flexDirection: "col",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
+  },
 });
