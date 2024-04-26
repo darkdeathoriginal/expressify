@@ -92,6 +92,19 @@ function RootLayoutNav() {
             },
           }}
         />
+        <Stack.Screen
+          name="signup/index"
+          options={{
+            headerShown: false,
+            headerTitle: "Signin",
+            headerStyle: {
+              backgroundColor: "white",
+            },
+            headerTitleStyle: {
+              color: "black",
+            },
+          }}
+        />
       </Stack>
       
     </ThemeProvider>
