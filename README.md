@@ -28,14 +28,6 @@ Our projects aims to create an application that is tailored for individuals havi
 - **Practice:** Enables users to practice their speech through personalized learning plan.
 - **User Interface:** Offers an intuitive platform for interaction and speech therapy.
 
-## Project Architecture 
-
-
-
-
-
-
-
 ## Team Members
 
 - Anwin Sharon
