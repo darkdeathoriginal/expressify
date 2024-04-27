@@ -11,3 +11,22 @@ Imagine a world where people with speech disorders can **express themselves free
 
 Our projects aims to create an application that is tailored for individuals having speech disorders, providing personalized therapy and communication assistance to enhace their ability to express themselves and engage with others effectively. Also we plan to foster a community around this application to meet the evolving needs of our users. Furthermore we plan to incorporate feedback from the them and to inform the development of new features and functionality, that will make a positive impact and empower individuals with speech disorders to express themselves and engage with the world around them.
 
+## Tech Stack Used
+
+- **Frontend Development:** React Native
+- **User Interface Design:** Figma and React Styles
+- **Database Management:** Firebase
+- **Backend Development:** FastAPI
+- **Deployment:** Expo
+- **ML/NLP:** Mediapipe, Open AI's Whisper V3 Large Model and Google TTS
+- **Training Dataset:** Kaggle
+
+- ## Features
+
+- **Communify:** Our flagship feature that helps to translate broken speech into text.
+- **Signify:** Users can use inbuilt custom sign model, ASL (American Sign Language) or ISL (Indian Sign Language) which translates sign language into text in real-time.
+- **Practice:** Enables users to practice their speech through personalized learning plan.
+- **Connect:** This enables users that are within the application to connect with each other. Helps to foster a community.
+- **User Interface:** Offers an intuitive platform for interaction and speech therapy.
+
+

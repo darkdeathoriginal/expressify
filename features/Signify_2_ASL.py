@@ -49,17 +49,112 @@ class SignLanguageConverter:
 
         if thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
             CountGesture.set('Okay')
-            return "Okay"
+            return ""
 
-
-        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
-            CountGesture.set('I dislike It')
-            return "Dislike"
-
-        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > index_finger_tip.y:
-            CountGesture.set('okay')
+       
+        if thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > index_finger_tip.y:
+            CountGesture.set('A')
             return "A"
-
+       
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('B')
+            return "B"
+       
+        elif thumb_tip.y > index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('C')
+            return "C"
+        
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('D')
+            return "D"
+        
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('E')
+            return "E"
+      
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('F')
+            return "F"
+        
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y < ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('G')
+            return "G"
+        
+        elif thumb_tip.y < index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('H')
+            return "H"
+        
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('I')
+            return "I"
+     
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('J')
+            return "J"
+        
+        elif thumb_tip.y > index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('K')
+            return "K"
+      
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('L')
+            return "L"
+        
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('M')
+            return "M"
+      
+        elif thumb_tip.y < index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('N')
+            return "N"
+      
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('O')
+            return "O"
+      
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('P')
+            return "P"
+  
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('Q')
+            return "Q"
+      
+        elif thumb_tip.y > index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('R')
+            return "R"
+        
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('S')
+            return "S"
+       
+        elif thumb_tip.y < index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('T')
+            return "T"
+   
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('U')
+            return "U"
+  
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('V')
+            return "V"
+     
+        elif thumb_tip.y < index_finger_tip.y > middle_finger_tip.y > ring_finger_tip.y > little_finger_tip.y:
+            CountGesture.set('W')
+            return "W"
+       
+        elif thumb_tip.y > index_finger_tip.y > middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('X')
+            return "X"
+        
+        elif thumb_tip.y < index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('Y')
+            return "Y"
+        
+        elif thumb_tip.y > index_finger_tip.y < middle_finger_tip.y < ring_finger_tip.y < little_finger_tip.y:
+            CountGesture.set('Z')
+            return "Z"
 
         elif thumb_tip.x < index_finger_tip.x < middle_finger_tip.x:
             if (hand_landmarks.landmark[2].x < hand_landmarks.landmark[5].x) and (hand_landmarks.landmark[3].x < hand_landmarks.landmark[5].x) and (hand_landmarks.landmark[4].x < hand_landmarks.landmark[5].x):
