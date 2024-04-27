@@ -72,6 +72,7 @@ function RootLayoutNav() {
         <Stack.Screen name="communify/index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/index" options={{ headerShown: false }} />
         <Stack.Screen name="form/index" options={{ headerShown: false }} />
+        <Stack.Screen name="signify/index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/practice/index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/practice/module" options={{ headerShown: false }} />
         <Stack.Screen name="resources/practice/chapter" options={{ headerShown: false }} />

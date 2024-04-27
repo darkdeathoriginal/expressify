@@ -12,7 +12,7 @@ const options = [
   {
     title: "Signify",
     imagePath: require("../assets/icons/signify.png"),
-    path: "/signin",
+    path: "/signify",
   },
   {
     title: "Resources",
