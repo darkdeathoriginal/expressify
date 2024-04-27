@@ -9,11 +9,11 @@ const options = [
     imagePath: require("../assets/icons/practice.png"),
     path: "/resources/practice",
   },
-  {
-    title: "Connect",
-    imagePath: require("../assets/icons/connect.png"),
-    path: "/resources/connect",
-  },
+  // {
+  //   title: "Connect",
+  //   imagePath: require("../assets/icons/connect.png"),
+  //   path: "/resources/connect",
+  // },
 ];
 
 export default function Resources() {
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
     marginTop: -190,
+    marginLeft: 30,
   },
   fullImage: {
     height: 100,
