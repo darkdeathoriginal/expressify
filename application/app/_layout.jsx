@@ -75,6 +75,7 @@ function RootLayoutNav() {
         <Stack.Screen name="resources/practice/index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/practice/module" options={{ headerShown: false }} />
         <Stack.Screen name="resources/practice/chapter" options={{ headerShown: false }} />
+        <Stack.Screen name="resources/practice/learn" options={{ headerShown: false }} />
         <Stack.Screen
           name="resources/connect/index"
           options={{ headerShown: false }}

@@ -29,6 +29,7 @@
     "expo-system-ui": "~2.9.3",
     "expo-web-browser": "~12.8.2",
     "firebase": "^10.11.1",
+    "google-tts-api": "^2.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.73.6",

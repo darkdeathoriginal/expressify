@@ -2,6 +2,8 @@ import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import AbhayaText from "./AbhayaText";
 import { router } from "expo-router";
 import { useState } from "react";
+const googleTTS = require("google-tts-api");
+import { Audio } from "expo-av";
 
 const options = [
   {
@@ -86,17 +88,36 @@ export default function Module() {
         )}
       </View>
       {selected && (
-        <View style={{
+        <View
+          style={{
             display: "flex",
             direction: "col",
             alignItems: "center",
             justifyContent: "center",
-        }}>
-          <AbhayaText style={{
-            fontSize: 20,
-            marginTop: 20,
-          }}>{selected}</AbhayaText>
-          <Image
+          }}
+        >
+          <AbhayaText
+            style={{
+              fontSize: 20,
+              marginTop: 20,
+            }}
+          >
+            {selected}
+          </AbhayaText>
+          <TouchableOpacity onPress={async()=>{
+            const url = await googleTTS.getAudioUrl(selected, {
+                lang: 'en',
+                slow: false,
+              });
+              console.log(url);
+              const { sound: playbackObject } = await Audio.Sound.createAsync(
+                { uri: url },
+                { shouldPlay: true }
+              );
+                await playbackObject.playAsync();
+              
+          }}>
+            <Image
               source={require("../assets/alert.png")}
               style={{
                 height: 50,
@@ -104,6 +125,7 @@ export default function Module() {
               }}
               resizeMode="contain"
             />
+          </TouchableOpacity>
         </View>
       )}
     </View>
