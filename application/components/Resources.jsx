@@ -1,74 +1,83 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import AbhayaText from "./AbhayaText";
 import { Link, router } from "expo-router";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import AbhayaText from "./AbhayaText";
+import { FIREBASE_AUTH } from "../firebaseconfig";
+
+const options = [
+  {
+    title: "Practice",
+    imagePath: require("../assets/icons/practice.png"),
+    path: "/resources/practice",
+  },
+  {
+    title: "Connect",
+    imagePath: require("../assets/icons/connect.png"),
+    path: "/resources/connect",
+  },
+];
 
 export default function Resources() {
   return (
-    <LinearGradient
-      style={styles.container}
-      colors={["#3B89FD", "#003CD8"]}
-      start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
-      locations={[0, 1]}
-    >
-      <View style={styles.nav}>
-        <TouchableOpacity
-          onPress={() => {
-            router.back();
-          }}
-        >
-          <Image
-            source={require("../assets/icons/connectleft.png")}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-        <View></View>
+    <View style={styles.container}>
+      <View style={styles.circle}></View>
+      <View style={styles.circle2}></View>
+      <Image source={require("../assets/icons/resources.png")} style={styles.fullImage} resizeMode="contain"/>
+      <View style={styles.welcomeContainer}>
+        <View style={styles.titleContainer}>
+          <AbhayaText style={styles.heading}>Resources</AbhayaText>
+        </View>
+        <View style={styles.group}>
+          {options.map((option) => (
+            <View style={styles.optionsContainer} key={option.title}>
+              <Image source={option.imagePath} style={styles.image} resizeMode="contain"/>
+              <Link href={option.path}>
+                <View style={styles.optionTitleContainer}>
+                  <View style={styles.rectangle}>
+                    <AbhayaText style={styles.text}>{option.title}</AbhayaText>
+                  </View>
+                </View>
+              </Link>
+            </View>
+          ))}
+          <TouchableOpacity onPress={()=>{
+            FIREBASE_AUTH.signOut()
+            router.push('/signin')
+          }}>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.headerContainer}>
-        <Image
-          source={require("../assets/icons/expressify.png")}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <AbhayaText style={styles.headerText}>Resources</AbhayaText>
-      </View>
-      <View style={styles.optionContainer}>
-        <Link href={"/resources/practice"}>
-          <View style={styles.rectangle}>
-            <AbhayaText style={styles.optionsText}>Practice</AbhayaText>
-          </View>
-        </Link>
-        <Link href={"/resources/connect"}>
-          <View style={styles.rectangle}>
-            <AbhayaText style={styles.optionsText}>Connect</AbhayaText>
-          </View>
-        </Link>
-        <Link href={"/resources/events"}>
-          <View style={styles.rectangle}>
-            <AbhayaText style={styles.optionsText}>Events</AbhayaText>
-          </View>
-        </Link>
-      </View>
-      <View></View>
-    </LinearGradient>
+    </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
     height: "100%",
     width: "100%",
+    backgroundColor: "#D7E5FF",
   },
-  headerContainer: {
-    display: "flex",
-    flexDirection: "col",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
+  circle: {
+    width: 398,
+    height: 398,
+    borderRadius: 500 / 2,
+    backgroundColor: "#9BBEFD",
+    position: "absolute",
+    top: -292,
+    left: -163,
+    zIndex: 5,
+  },
+  circle2: {
+    width: 700,
+    height: 700,
+    borderRadius: 1000,
+    backgroundColor: "#367CFED9",
+    position: "absolute",
+    top: -409,
+    left: -200,
+    zIndex: 3,
   },
   image: {
     height: 70,
@@ -77,48 +86,75 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     zIndex: 10,
   },
-  headerText: {
-    fontSize: 50,
-  },
-  optionContainer: {
-    display: "flex",
-    flexDirection: "col",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 20,
-  },
   rectangle: {
     backgroundColor: "white",
-    width: 250,
+    width: 300,
     height: "contain",
     borderRadius: 10,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
-    paddingVertical: 5,
+    paddingVertical: 15,
   },
-  optionsText: {
+  optionsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: -80,
+  },
+  optionTitleContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  group: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: 10,
+    marginTop: -450,
+  },
+  heading: {
+    fontSize: 50,
+    color: "white",
+  },
+  heading2: {
     fontSize: 30,
     color: "#000",
   },
-  gif: {
-    width: 400,
-    opacity: 0.5,
-    bottom: 0,
+  text: {
+    fontSize: 30,
+    color: "#000",
   },
-  nav: {
+  welcomeContainer: {
+    marginTop: 20,
     display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    alignSelf: "stretch",
-    marginTop: 0,
-    paddingHorizontal: 10,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignContent: "center",
+    height: "100%",
+    zIndex: 100,
   },
-  icon: {
-    height: 30,
-    width: 30,
-    zIndex: 10,
+  titleContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    width: "100%",
+    overflow: "hidden",
+    marginTop: -190,
+  },
+  fullImage: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    marginTop: 100,
+    marginBottom:-150,
+    zIndex: 1000,
+    alignSelf: "center",
+    justifyContent: "center",
   },
 });

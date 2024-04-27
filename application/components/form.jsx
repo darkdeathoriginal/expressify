@@ -53,9 +53,9 @@ export default function Form() {
           alignItems: "center",
         }}
       >
-        <AbhayaText style={styles.title}>Pick your age</AbhayaText>
+        <AbhayaText style={styles.title}>{state=="age"?"Pick your age":"Speech level"}</AbhayaText>
         <AbhayaText style={styles.desc}>
-          This will help us personalize your{"\n"} experience
+         { state=="age"?"This will help us personalize your\n experience":"Please select your  speech level"}
         </AbhayaText>
       </View>
 

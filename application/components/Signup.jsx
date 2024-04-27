@@ -75,6 +75,7 @@ export default function Signup() {
         </View>
         <SafeAreaView>
           <View style={styles.inputContainer}>
+          <AbhayaText style={styles.signinText}>Sign Up</AbhayaText>
             <TextInput
               value={name}
               onChangeText={setName}
@@ -118,11 +119,10 @@ export default function Signup() {
           }}
         >
           <View style={styles.signinSection}>
-            <AbhayaText style={styles.signinText}>Sign Up</AbhayaText>
             <TouchableOpacity onPress={signUp}>
               <Image
                 source={require("../assets/icons/signin-button.png")}
-                style={{ height: 60, marginRight: -40 }}
+                style={{ height: 60, marginRight: -0 }}
                 resizeMode="contain"
               />
             </TouchableOpacity>

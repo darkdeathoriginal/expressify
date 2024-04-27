@@ -27,7 +27,7 @@ export default function Communify() {
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
       await newRecording.startAsync();
-      alert("Recording started");
+      setSpeech("Recording...")
       setRecording(newRecording);
       setRecordingStatus("recording");
     } catch (error) {
@@ -39,6 +39,7 @@ export default function Communify() {
     try {
       if (recordingStatus === "recording") {
         console.log("Stopping Recording");
+        setSpeech("Processing...")
         await recording.stopAndUnloadAsync();
         const recordingUri = recording.getURI();
         console.log(recordingUri);
@@ -83,7 +84,7 @@ export default function Communify() {
         }).then((res) => res.json());
         while (!resp.error && !resp.completed_at) {
           await new Promise((resolve) => {
-            setTimeout(resolve, 100);
+            setTimeout(resolve, 1000);
           });
           resp = await fetch(url, {
             method: "GET",

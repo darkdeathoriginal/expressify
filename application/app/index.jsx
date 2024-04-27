@@ -11,7 +11,6 @@ export default function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, (user) => {
       setUser(user);
-      console.log(user);
     });
 
     return unsubscribe; // Cleanup function to remove listener

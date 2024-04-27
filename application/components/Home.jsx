@@ -52,7 +52,7 @@ export default function Home() {
             router.push('/signin')
           }}>
             <View style={styles.optionTitleContainer}>
-              <View style={[styles.rectangle, { backgroundColor: "red" }]}>
+              <View style={[styles.rectangle, { backgroundColor: "#0F50E1" }]}>
                 <AbhayaText style={{ ...styles.text, color: "white" }}>
                   Logout
                 </AbhayaText>
