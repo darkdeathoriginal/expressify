@@ -1,5 +1,6 @@
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import AbhayaText from "./AbhayaText";
+import { router } from "expo-router";
 export default function Signify() {
   return (
     <View style={styles.container}>
