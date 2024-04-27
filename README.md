@@ -18,7 +18,7 @@ Our projects aims to create an application that is tailored for individuals havi
 - **Database Management:** Firebase
 - **Backend Development:** FastAPI
 - **Deployment:** Expo
-- **ML/NLP:** Mediapipe, Open AI's Whisper V3 Large Model and Google TTS
+- **ML/NLP:** Mediapipe, Open AI's Whisper V3 Large Model and Talkify
 - **Training Dataset:** Kaggle
 
  ## Features
