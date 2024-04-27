@@ -21,12 +21,24 @@ Our projects aims to create an application that is tailored for individuals havi
 - **ML/NLP:** Mediapipe, Open AI's Whisper V3 Large Model and Google TTS
 - **Training Dataset:** Kaggle
 
-- ## Features
+ ## Features
 
 - **Communify:** Our flagship feature that helps to translate broken speech into text.
 - **Signify:** Users can use inbuilt custom sign model, ASL (American Sign Language) or ISL (Indian Sign Language) which translates sign language into text in real-time.
 - **Practice:** Enables users to practice their speech through personalized learning plan.
-- **Connect:** This enables users that are within the application to connect with each other. Helps to foster a community.
 - **User Interface:** Offers an intuitive platform for interaction and speech therapy.
 
+## Project Architecture 
+
+
+
+
+
+
+
+## Team Members
+
+- Anwin Sharon
+- Saket Gudimella
+- Kushargra Purohith
 
